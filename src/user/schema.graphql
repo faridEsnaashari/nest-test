@@ -1,3 +1,6 @@
+type ReturnMessage{
+  message: String
+}
 type User{
   id: Int
   name: String
@@ -19,7 +22,9 @@ type Query{
 }
 
 type Mutation{
-  createUser(userDetails: UserInput!): String!
+  createUser(userDetails: UserInput!): ReturnMessage!
+  updateUser(userDetails: UserInput!): ReturnMessage!
+  deleteUser(user_id: Int!): ReturnMessage!
 }
 
 
