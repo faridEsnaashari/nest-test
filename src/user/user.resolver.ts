@@ -33,4 +33,10 @@ export class UserResolver {
         const result = this.userServices.updateUser(userDetails);
         return result;
     }
+
+    @Mutation('deleteUser')
+    deleteUser(@Args('user_id') user_id: number){
+        const result = this.userServices.deleteUser(user_id);
+        return result;
+    }
 }
