@@ -12,9 +12,12 @@ export class UserService {
 
     public async getOneUser(user_id: number): Promise<User>{
         const queryStatement = `select * from users_tbl where id = ${ user_id }`;
+
+        let result: User;
         try{
-            const result = await this.dbManager.executeQuery(queryStatement);
-            return result.rows[0];
+            const queryResult = await this.dbManager.executeQuery(queryStatement);
+            result = queryResult.rows[0];
+            return result;
         }
         catch(err){
             console.error(err);
@@ -23,9 +26,12 @@ export class UserService {
 
     public async getAllUsers(): Promise<User[]>{
         const queryStatement = `select * from users_tbl`;
+
+        let result: User[];
         try{
-            const result = await this.dbManager.executeQuery(queryStatement);
-            return result.rows;
+            const queryResult = await this.dbManager.executeQuery(queryStatement);
+            result = queryResult.rows;
+            return result;
         }
         catch(err){
             console.error(err);
