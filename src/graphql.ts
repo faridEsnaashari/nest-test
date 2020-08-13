@@ -6,7 +6,15 @@
 
 /* tslint:disable */
 /* eslint-disable */
-export interface UserInput {
+export interface UserCreateInput {
+    name: string;
+    age: number;
+    gender: string;
+    phonenumber: string;
+}
+
+export interface UserUpdateInput {
+    id: number;
     name: string;
     age: number;
     gender: string;
@@ -31,7 +39,7 @@ export interface IQuery {
 }
 
 export interface IMutation {
-    createUser(userDetails: UserInput): ReturnMessage | Promise<ReturnMessage>;
-    updateUser(userDetails: UserInput): ReturnMessage | Promise<ReturnMessage>;
+    createUser(userDetails: UserCreateInput): ReturnMessage | Promise<ReturnMessage>;
+    updateUser(userDetails: UserUpdateInput): ReturnMessage | Promise<ReturnMessage>;
     deleteUser(user_id: number): ReturnMessage | Promise<ReturnMessage>;
 }

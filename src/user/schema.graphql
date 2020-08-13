@@ -9,7 +9,15 @@ type User{
   phonenumber: String
 }
 
-input UserInput{
+input UserCreateInput{
+  name: String!
+  age: Int!
+  gender: String!
+  phonenumber: String!
+}
+
+input UserUpdateInput{
+  id: Int!
   name: String!
   age: Int!
   gender: String!
@@ -22,8 +30,8 @@ type Query{
 }
 
 type Mutation{
-  createUser(userDetails: UserInput!): ReturnMessage!
-  updateUser(userDetails: UserInput!): ReturnMessage!
+  createUser(userDetails: UserCreateInput!): ReturnMessage!
+  updateUser(userDetails: UserUpdateInput!): ReturnMessage!
   deleteUser(user_id: Int!): ReturnMessage!
 }
 
