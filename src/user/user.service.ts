@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {User} from 'src/graphql';
+import {User, UserInput, ReturnMessage} from 'src/graphql';
 import {DataBaseService} from 'src/dataBase.service';
 
 @Injectable()
@@ -35,6 +35,24 @@ export class UserService {
         }
         catch(err){
             console.error(err);
+        }
+    }
+
+    public async createUser(userDetails: UserInput): Promise<ReturnMessage>{
+        const queryStatement = `insert into users_tbl(name, age, gender, phonenumber) values('${ userDetails.name }', ${ userDetails.age }, '${ userDetails.gender }', '${ userDetails.phonenumber }')`;
+
+        let result: ReturnMessage = {};
+        try{
+            await this.dbManager.executeQuery(queryStatement);
+            result.message = "user created";
+            return result;
+        }
+        catch(err){
+            console.error(err);
+            if(err.code === "23505"){
+                result.message = "user existed";
+                return result;
+            }
         }
     }
 }
