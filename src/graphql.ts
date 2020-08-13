@@ -22,6 +22,7 @@ export interface UserUpdateInput {
 }
 
 export interface ReturnMessage {
+    statusCode?: number;
     message?: string;
 }
 
