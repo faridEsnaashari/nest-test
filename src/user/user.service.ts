@@ -76,5 +76,26 @@ export class UserService {
             }
         }
     }
+
+    public async deleteUser(user_id: number): Promise<ReturnMessage>{
+        const queryStatement = `delete from users_tbl where id = ${ user_id }`;
+
+        let result: ReturnMessage = {};
+        try{
+            const queryResult = await this.dbManager.executeQuery(queryStatement);
+            if(queryResult.rowCount < 1){
+                throw new Error("user not found");
+            }
+            result.message = "user deleted";
+            return result;
+        }
+        catch(err){
+            console.error(err);
+            if(err.message === "user not found"){
+                result.message = err.message;
+                return result;
+            }
+        }
+    }
 }
 
