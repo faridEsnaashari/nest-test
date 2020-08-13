@@ -12,6 +12,14 @@ export class DataBaseService{
     });
 
     constructor(){
-        this.client.connect();
+        this.connectToDBServer();
+    }
+
+    public async executeQuery(queryStatement: String): Promise<any>{
+        return await this.client.query(queryStatement); 
+    }
+
+    private async connectToDBServer(){
+        await this.client.connect();
     }
 }
