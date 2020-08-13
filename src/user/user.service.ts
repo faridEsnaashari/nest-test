@@ -53,6 +53,10 @@ export class UserService {
                 result.message = "user existed";
                 return result;
             }
+            else{
+                result.message = "internal server error";
+                return result;
+            }
         }
     }
 
@@ -74,6 +78,10 @@ export class UserService {
                 result.message = err.message;
                 return result;
             }
+            else{
+                result.message = "internal server error";
+                return result;
+            }
         }
     }
 
@@ -93,6 +101,10 @@ export class UserService {
             console.error(err);
             if(err.message === "user not found"){
                 result.message = err.message;
+                return result;
+            }
+            else{
+                result.message = "internal server error";
                 return result;
             }
         }
