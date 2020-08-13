@@ -15,8 +15,9 @@ export class UserResolver {
         return result;
     }
 
-//    @Query('users')
-//    async getAllUsers(){
-//        return this.userServices.getAllUsers();
-//    }
+    @Query('users')
+    async getAllUsers(){
+        const result = await this.userServices.getAllUsers();
+        return result;
+    }
 }
