@@ -10,14 +10,14 @@ export class UserResolver {
     }
 
     @Query('user')
-    async getOneUser(@Args('user_id') user_id: number){
-        const result = await this.userServices.getOneUser(user_id);
+    getOneUser(@Args('user_id') user_id: number){
+        const result = this.userServices.getOneUser(user_id);
         return result;
     }
 
     @Query('users')
-    async getAllUsers(){
-        const result = await this.userServices.getAllUsers();
+    getAllUsers(){
+        const result = this.userServices.getAllUsers();
         return result;
     }
 }
