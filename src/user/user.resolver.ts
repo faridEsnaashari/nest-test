@@ -11,11 +11,12 @@ export class UserResolver {
 
     @Query('user')
     async getOneUser(@Args('user_id') user_id: number){
-        return this.userServices.getOneUser(user_id)
+        const result = await this.userServices.getOneUser(user_id);
+        return result;
     }
 
-    @Query('users')
-    async getAllUsers(){
-        return this.userServices.getAllUsers();
-    }
+//    @Query('users')
+//    async getAllUsers(){
+//        return this.userServices.getAllUsers();
+//    }
 }
