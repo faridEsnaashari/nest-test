@@ -21,8 +21,15 @@ export class UserService {
         }
     }
 
-//    getAllUsers(): User[]{
-//
-//    }
+    public async getAllUsers(): Promise<User[]>{
+        const queryStatement = `select * from users_tbl`;
+        try{
+            const result = await this.dbManager.executeQuery(queryStatement);
+            return result.rows;
+        }
+        catch(err){
+            console.error(err);
+        }
+    }
 }
 
