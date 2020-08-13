@@ -45,16 +45,19 @@ export class UserService {
         try{
             await this.dbManager.executeQuery(queryStatement);
             result.message = "user created";
+            result.statusCode = 201;
             return result;
         }
         catch(err){
             console.error(err);
             if(err.code === "23505"){
                 result.message = "user existed";
+                result.statusCode = 409;
                 return result;
             }
             else{
                 result.message = "internal server error";
+                result.statusCode = 500;
                 return result;
             }
         }
@@ -70,16 +73,19 @@ export class UserService {
                 throw new Error("user not found");
             }
             result.message = "user updated";
+            result.statusCode = 200;
             return result;
         }
         catch(err){
             console.error(err);
             if(err.message === "user not found"){
                 result.message = err.message;
+                result.statusCode = 404;
                 return result;
             }
             else{
                 result.message = "internal server error";
+                result.statusCode = 500;
                 return result;
             }
         }
@@ -95,16 +101,19 @@ export class UserService {
                 throw new Error("user not found");
             }
             result.message = "user deleted";
+            result.statusCode = 200;
             return result;
         }
         catch(err){
             console.error(err);
             if(err.message === "user not found"){
                 result.message = err.message;
+                result.statusCode = 404;
                 return result;
             }
             else{
                 result.message = "internal server error";
+                result.statusCode = 500;
                 return result;
             }
         }
