@@ -6,5 +6,5 @@ create table users_tbl(
     name char(50),
     age int,
     gender char(10),
-    phonenumber char(12)
+    phonenumber char(12) unique
 );
