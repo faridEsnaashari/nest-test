@@ -39,11 +39,12 @@ export class UserService {
     }
 
     public async createUser(userDetails: UserCreateInput): Promise<ReturnMessage>{
-        const queryStatement = `insert into users_tbl(name, age, gender, phonenumber) values('${ userDetails.name }', ${ userDetails.age }, '${ userDetails.gender }', '${ userDetails.phonenumber }')`;
+        const queryStatement = `insert into users_tbl(name, age, gender, phonenumber) values('${ userDetails.name }', ${ userDetails.age }, '${ userDetails.gender }', '${ userDetails.phonenumber }') RETURNING id`;
 
         let result: ReturnMessage = {};
         try{
-            await this.dbManager.executeQuery(queryStatement);
+            const queryResult = await this.dbManager.executeQuery(queryStatement);
+            result.user_id = <number>queryResult.rows[0].id;
             result.message = "user created";
             result.statusCode = 201;
             return result;
