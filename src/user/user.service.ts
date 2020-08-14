@@ -84,6 +84,11 @@ export class UserService {
                 result.statusCode = 404;
                 return result;
             }
+            else if(err.code === "23505"){
+                result.message = "duplicate phonenumber";
+                result.statusCode = 409;
+                return result;
+            }
             else{
                 result.message = "internal server error";
                 result.statusCode = 500;
