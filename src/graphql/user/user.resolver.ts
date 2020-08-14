@@ -11,32 +11,32 @@ export class UserResolver {
     }
 
     @Query('user')
-    getOneUser(@Args('user_id') user_id: number){
-        const result = this.userServices.getOneUser(user_id);
+    async getOneUser(@Args('user_id') user_id: number){
+        const result = await this.userServices.getOneUser(user_id);
         return result;
     }
 
     @Query('users')
-    getAllUsers(){
-        const result = this.userServices.getAllUsers();
+    async getAllUsers(){
+        const result = await this.userServices.getAllUsers();
         return result;
     }
 
     @Mutation('createUser')
-    createUser(@Args('userDetails') userDetails: UserCreateInput){
-        const result = this.userServices.createUser(userDetails);
+    async createUser(@Args('userDetails') userDetails: UserCreateInput){
+        const result = await this.userServices.createUser(userDetails);
         return result;
     }
 
     @Mutation('updateUser')
-    updateUser(@Args('userDetails') userDetails: UserUpdateInput){
-        const result = this.userServices.updateUser(userDetails);
+    async updateUser(@Args('userDetails') userDetails: UserUpdateInput){
+        const result = await this.userServices.updateUser(userDetails);
         return result;
     }
 
     @Mutation('deleteUser')
-    deleteUser(@Args('user_id') user_id: number){
-        const result = this.userServices.deleteUser(user_id);
+    async deleteUser(@Args('user_id') user_id: number){
+        const result = await this.userServices.deleteUser(user_id);
         return result;
     }
 }
