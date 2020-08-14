@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {User, ReturnMessage, UserUpdateInput, UserCreateInput} from '../../graphql';
-import {DataBaseService} from 'src/dataBase.service';
+import {DataBaseService, Errors} from 'src/dataBase.service';
 
 @Injectable()
 export class UserService {
@@ -51,7 +51,7 @@ export class UserService {
         }
         catch(err){
             console.error(err);
-            if(err.code === "23505"){
+            if(err.code === Errors.DUPLICATE){
                 result.message = "user existed";
                 result.statusCode = 409;
                 return result;
@@ -71,7 +71,7 @@ export class UserService {
         try{
             const queryResult = await this.dbManager.executeQuery(queryStatement);
             if(queryResult.rowCount < 1){
-                throw new Error("user not found");
+                throw new Error(Errors.NOT_FOUND);
             }
             result.message = "user updated";
             result.statusCode = 200;
@@ -79,12 +79,12 @@ export class UserService {
         }
         catch(err){
             console.error(err);
-            if(err.message === "user not found"){
-                result.message = err.message;
+            if(err.message === Errors.NOT_FOUND){
+                result.message = "user not found";
                 result.statusCode = 404;
                 return result;
             }
-            else if(err.code === "23505"){
+            else if(err.code === Errors.DUPLICATE){
                 result.message = "duplicate phonenumber";
                 result.statusCode = 409;
                 return result;
@@ -104,7 +104,7 @@ export class UserService {
         try{
             const queryResult = await this.dbManager.executeQuery(queryStatement);
             if(queryResult.rowCount < 1){
-                throw new Error("user not found");
+                throw new Error(Errors.NOT_FOUND);
             }
             result.message = "user deleted";
             result.statusCode = 200;
@@ -112,8 +112,8 @@ export class UserService {
         }
         catch(err){
             console.error(err);
-            if(err.message === "user not found"){
-                result.message = err.message;
+            if(err.message === Errors.NOT_FOUND){
+                result.message = "user not found";
                 result.statusCode = 404;
                 return result;
             }
