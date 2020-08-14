@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import {GraphQLModule} from '@nestjs/graphql';
 import {join} from 'path';
-import { UserModule } from './user/user.module';
+import {GraphqlModule} from './graphql/graphql.module';
 
 @Module({
     imports: [
@@ -11,7 +11,7 @@ import { UserModule } from './user/user.module';
                 path: join(process.cwd(), 'src/graphql.ts'),
             }
         }),
-        UserModule,
+        GraphqlModule,
     ],
 })
 export class AppModule {}
