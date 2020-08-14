@@ -1,4 +1,5 @@
 type ReturnMessage{
+  user_id: Int
   statusCode: Int
   message: String
 }
