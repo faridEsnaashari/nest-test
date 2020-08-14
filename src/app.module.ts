@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import {GraphQLModule} from '@nestjs/graphql';
 import {join} from 'path';
 import {GraphqlModule} from './graphql/graphql.module';
+import {WebSocketModule} from './webSocket/webSocket.module';
 
 @Module({
     imports: [
@@ -12,6 +13,7 @@ import {GraphqlModule} from './graphql/graphql.module';
             }
         }),
         GraphqlModule,
+        WebSocketModule,
     ],
 })
 export class AppModule {}
