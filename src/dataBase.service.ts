@@ -15,6 +15,7 @@ export class DataBaseService{
         this.connectToDBServer();
     }
 
+
     public async executeQuery(queryStatement: String): Promise<any>{
         return await this.client.query(queryStatement); 
     }
@@ -22,4 +23,9 @@ export class DataBaseService{
     private async connectToDBServer(){
         await this.client.connect();
     }
+}
+
+export enum Errors{
+    DUPLICATE = "23505",
+    NOT_FOUND = "not found",
 }
