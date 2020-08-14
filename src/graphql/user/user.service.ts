@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {User, ReturnMessage, UserUpdateInput, UserCreateInput} from 'src/graphql';
+import {User, ReturnMessage, UserUpdateInput, UserCreateInput} from '../../graphql';
 import {DataBaseService} from 'src/dataBase.service';
 
 @Injectable()
