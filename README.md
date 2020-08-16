@@ -29,18 +29,18 @@ $ npm run start:dev
 ```
 
 ## API Document
-- ### [graphql](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#api-documentgraphql)
-    - [get one user](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#title-get-one-user)
-    - [get all user](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#title-get-all-user)
-    - [createUser](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#title-create-user)
-    - [updateUser](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#title-create-user)
-    - [deleteUser](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#title-delete-user)
-- ### [websocket](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#api-documentwebsocket)
-    - [get one user](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#title-get-one-user-1)
-    - [get all user](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#title-get-all-user-1)
-    - [createUser](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#titlecreateuser)
-    - [updateUser](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#titleupdateuser)
-    - [deleteUser](https://github.com/faridEsnaashari/readmetest/blob/master/README.md#titledeleteuser)
+- ### [graphql](https://github.com/faridEsnaashari/nest-test#api-documentgraphql)
+    - [get one user](https://github.com/faridEsnaashari/nest-test#title-get-one-user)
+    - [get all user](https://github.com/faridEsnaashari/nest-test#title-get-all-user)
+    - [createUser](https://github.com/faridEsnaashari/nest-test#title-create-user)
+    - [updateUser](https://github.com/faridEsnaashari/nest-test#title-update-user)
+    - [deleteUser](https://github.com/faridEsnaashari/nest-test#title-delete-user)
+- ### [websocket](https://github.com/faridEsnaashari/nest-test#api-documentwebsocket)
+    - [get one user](https://github.com/faridEsnaashari/nest-test#title-get-one-user-1)
+    - [get all user](https://github.com/faridEsnaashari/nest-test#title-get-all-user-1)
+    - [createUser](https://github.com/faridEsnaashari/nest-test#titlecreateuser)
+    - [updateUser](https://github.com/faridEsnaashari/nest-test#titleupdateuser)
+    - [deleteUser](https://github.com/faridEsnaashari/nest-test#titledeleteuser)
 ## API Document(graphql)
 #### <b>title:</b> get one user<br>
 <b>description:</b> get details of an user specified by id(user\_id)<br>
